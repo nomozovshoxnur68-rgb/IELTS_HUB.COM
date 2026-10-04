@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" type="image/svg+xml" href="https://www.ieltshub.uz/icon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IELTSHUB - IELTS tayyorgarligi uchun online platforma: practice testlar, vocabulary va progress tracking.">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <meta name="theme-color" content="#0d1b2a">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="IELTSHUB">
+    <meta property="og:title" content="Listening Test | IELTSHUB">
+    <meta property="og:description" content="IELTSHUB - IELTS tayyorgarligi uchun online platforma: practice testlar, vocabulary va progress tracking.">
+    <meta property="og:image" content="https://ieltshub.uz/icon.svg">
+    <meta property="og:image:secure_url" content="https://ieltshub.uz/icon.svg">
+    <meta property="og:image:type" content="image/svg+xml">
+    <meta property="og:image:alt" content="IELTSHUB website icon">
+    <meta property="og:url" content="https://ieltshub.uz/listening/69dbb754590167a3cd104f5d?mock=69f79dc734575ef959954124&amp;section=listening">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Listening Test | IELTSHUB">
+    <meta name="twitter:description" content="IELTSHUB - IELTS tayyorgarligi uchun online platforma: practice testlar, vocabulary va progress tracking.">
+    <meta name="twitter:image" content="https://ieltshub.uz/icon.svg">
+    <link rel="canonical" href="https://ieltshub.uz/listening/69dbb754590167a3cd104f5d?mock=69f79dc734575ef959954124&amp;section=listening">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Listening Test | IELTSHUB</title>
+    <link rel="stylesheet" crossorigin="" href="index-BysHJnim.css">
+    <style>
+        .map-radio-td label.map-radio-cell {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .map-radio-td .map-radio-dot {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid #aaa;
+            background: #fff;
+            transition: 0.15s;
+        }
+        .map-radio-td input.map-radio-native:checked+.map-radio-dot {
+            border-color: #2563eb;
+            background: #2563eb;
+            box-shadow: inset 0 0 0 3px #fff;
+        }
+        .map-radio-td input.map-radio-native {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+        }
+        .map-radio-td {
+            vertical-align: middle;
+        }
+        .drag-item {
+            user-select: none;
+            -webkit-user-select: none;
+            transition: opacity 0.2s;
+        }
+        .drag-item.used {
+            display: none;
+        }
+        .drop-input {
+            background: #fafafa;
+            cursor: pointer;
+        }
+        .drop-input:focus {
+            outline: 2px solid #2563eb;
+            outline-offset: 0px;
+        }
+        .mcq-option-row:hover {
+            background: #f3f4f6;
+        }
+        .mcma-option:hover label {
+            color: #1e40af;
+        }
+        .question-focus-target:focus {
+            outline: 2px solid #2563eb;
+            outline-offset: 4px;
+            border-radius: 4px;
+        }
+        .Toastify {
+            position: fixed;
+            z-index: 999999;
+            top: 16px;
+            right: 16px;
+            max-width: 380px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div class="relative flex flex-col h-screen test-mode-page">
+            <!-- header -->
+            <div class="px-6 top-0 left-0 right-0 z-50 bg-white text-black text-[16px]">
+                <div class="py-2 flex items-center justify-between relative">
+                    <div class="flex items-center gap-4">
+                        <img alt="IELTS" class="h-14" src="https://www.ieltshub.uz/ielts.png">
+                        <div>
+                            <div class="font-semibold">Mock | Test 1</div>
+                            <div class="text-xs font-medium flex items-center gap-3 text-gray-600">
+                                <span id="timerDisplay">24 minutes remaining</span>
+                                <span class="flex items-center gap-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-volume2 lucide-volume-2" aria-hidden="true"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"></path><path d="M16 9a5 5 0 0 1 0 6"></path><path d="M19.364 18.364a9 9 0 0 0 0-12.728"></path></svg>
+                                    <span id="audioStatusLabel">Audio is playing</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-6">
+                        <div class="flex items-center gap-2">
+                            <button type="button" class="hover:opacity-70 flex-shrink-0" id="muteBtn" aria-label="Mute">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-volume2 lucide-volume-2" aria-hidden="true"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"></path><path d="M16 9a5 5 0 0 1 0 6"></path><path d="M19.364 18.364a9 9 0 0 0 0-12.728"></path></svg>
+                            </button>
+                            <input min="0" max="1" step="0.02" class="w-24 accent-current cursor-pointer" aria-label="Volume" type="range" id="volumeSlider" value="0.5">
+                        </div>
+                        <button class="hover:opacity-70" id="fullscreenBtn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-expand" aria-hidden="true"><path d="m15 15 6 6"></path><path d="m15 9 6-6"></path><path d="M21 16v5h-5"></path><path d="M21 8V3h-5"></path><path d="M3 16v5h5"></path><path d="m3 21 6-6"></path><path d="M3 8V3h5"></path><path d="M9 9 3 3"></path></svg>
+                        </button>
+                        <div title="Internet: 3/4 · 161ms" aria-label="Internet: 3/4 · 161ms" class="inline-flex items-end" style="height:26px;gap:2px;">
+                            <span style="width:4px;height:10px;background:#10b981;border-radius:2px;display:inline-block;"></span>
+                            <span style="width:4px;height:14px;background:#10b981;border-radius:2px;display:inline-block;"></span>
+                            <span style="width:4px;height:18px;background:#10b981;border-radius:2px;display:inline-block;"></span>
+                            <span style="width:4px;height:22px;background:#cbd5e1;border-radius:2px;display:inline-block;"></span>
+                        </div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0"></path><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path></svg>
+                        <button type="button" class="hover:opacity-70" aria-label="Accessibility settings">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true"><path d="M4 12h16"></path><path d="M4 18h16"></path><path d="M4 6h16"></path></svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="w-full border px-6 py-3 rounded-l bg-[#F1F2EC] text-black border-[#D5D5D5]">
+                    <div class="font-bold" id="partTitle">Part 1</div>
+                    <div class="text-sm" id="partSubtitle">Listen and answer questions 1-10.</div>
+                </div>
+            </div>
+
+            <!-- main content -->
+            <div class="w-full overflow-y-auto flex-1 mx-auto p-8 bg-white text-black text-[16px]" id="scrollContainer">
+                <!-- PART 1 -->
+                <div class="block" id="panelWrap0">
+                    <div id="«r0»" class="relative read-markdown-content">
+                        <p><em>Questions 1-10</em></p>
+                        <p>Complete the notes below.</p>
+                        <p>Write <strong>ONE WORD AND/OR A NUMBER</strong> for each answer.</p>
+                        <br>
+                        <h5>Car Rental Inquiry</h5>
+                        <br>
+                        <p><strong>Example</strong></p>
+                        <p>Nationality: American</p>
+                        <p>Contact number: <span class="inline-flex items-center"><input id="question-1" placeholder="1" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part0_q1"></span></p>
+                        <p>Send written quote by: <span class="inline-flex items-center"><input id="question-2" placeholder="2" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part0_q2"></span></p>
+                        <p>Price for renting: $ <span class="inline-flex items-center"><input id="question-3" placeholder="3" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part0_q3"></span> daily</p>
+                        <br>
+                        <p><strong>Special requirements for the room:</strong></p>
+                        <p>• an extra <span class="inline-flex items-center"><input id="question-4" placeholder="4" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part0_q4"></span></p>
+                        <p>• most important facility: <span class="inline-flex items-center"><input id="question-5" placeholder="5" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part0_q5"></span></p>
+                        <br>
+                        <p><strong>Extra equipment:</strong></p>
+                        <p>• they should have a <span class="inline-flex items-center"><input id="question-6" placeholder="6" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part0_q6"></span></p>
+                        <p>• as well as a <span class="inline-flex items-center"><input id="question-7" placeholder="7" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part0_q7"></span></p>
+                        <p>Pick them up from the <span class="inline-flex items-center"><input id="question-8" placeholder="8" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part0_q8"></span></p>
+                        <p>The caravan driver's age: <span class="inline-flex items-center"><input id="question-9" placeholder="9" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part0_q9"></span></p>
+                        <p>The registered licence issued in: <span class="inline-flex items-center"><input id="question-10" placeholder="10" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part0_q10"></span></p>
+                    </div>
+                </div>
+
+                <!-- PART 2 -->
+                <div class="hidden" id="panelWrap1">
+                    <div id="«r1»" class="relative read-markdown-content">
+                        <p><em>Questions 11-14</em></p>
+                        <p>Choose the correct answer.</p>
+                        <br>
+                        <p><strong>Starting work at Hollies supermarket</strong></p>
+                        <br>
+                        <div id="question-11" class="mb-4 mcq-question-block question-focus-target" tabindex="-1">
+                            <p class="mcq-question-title"><span class="mcq-question-number">11</span><span class="mcq-question-text">The supervisor starts her talk by explaining that employees have to</span></p>
+                            <label class="mcq-option-row flex items-center cursor-pointer w-3/4 rounded-md px-3 py-2">
+                                <input class="mcq-option-input mr-2" type="radio" value="A" name="part1_q11"> be aware of the importance of teamwork.
+                            </label>
+                            <label class="mcq-option-row flex items-center cursor-pointer w-3/4 rounded-md px-3 py-2">
+                                <input class="mcq-option-input mr-2" type="radio" value="B" name="part1_q11"> be flexible in terms of their availability.
+                            </label>
+                            <label class="mcq-option-row flex items-center cursor-pointer w-3/4 rounded-md px-3 py-2">
+                                <input class="mcq-option-input mr-2" type="radio" value="C" name="part1_q11"> be capable of lifting heavy loads.
+                            </label>
+                        </div>
+                        <div id="question-12" class="mb-4 mcq-question-block question-focus-target" tabindex="-1">
+                            <p class="mcq-question-title"><span class="mcq-question-number">12</span><span class="mcq-question-text">The supervisor says that when the supermarket is very busy, employees must</span></p>
+                            <label class="mcq-option-row flex items-center cursor-pointer w-3/4 rounded-md px-3 py-2">
+                                <input class="mcq-option-input mr-2" type="radio" value="A" name="part1_q12"> decide for themselves what needs doing.
+                            </label>
+                            <label class="mcq-option-row flex items-center cursor-pointer w-3/4 rounded-md px-3 py-2">
+                                <input class="mcq-option-input mr-2" type="radio" value="B" name="part1_q12"> postpone their scheduled break.
+                            </label>
+                            <label class="mcq-option-row flex items-center cursor-pointer w-3/4 rounded-md px-3 py-2">
+                                <input class="mcq-option-input mr-2" type="radio" value="C" name="part1_q12"> report minor accidents quickly.
+                            </label>
+                        </div>
+                        <div id="question-13" class="mb-4 mcq-question-block question-focus-target" tabindex="-1">
+                            <p class="mcq-question-title"><span class="mcq-question-number">13</span><span class="mcq-question-text">The supervisor explains that when employees have a positive attitude, it</span></p>
+                            <label class="mcq-option-row flex items-center cursor-pointer w-3/4 rounded-md px-3 py-2">
+                                <input class="mcq-option-input mr-2" type="radio" value="A" name="part1_q13"> helps everyone in the supermarket to relax.
+                            </label>
+                            <label class="mcq-option-row flex items-center cursor-pointer w-3/4 rounded-md px-3 py-2">
+                                <input class="mcq-option-input mr-2" type="radio" value="B" name="part1_q13"> encourages customers to spend more.
+                            </label>
+                            <label class="mcq-option-row flex items-center cursor-pointer w-3/4 rounded-md px-3 py-2">
+                                <input class="mcq-option-input mr-2" type="radio" value="C" name="part1_q13"> improves work effectiveness.
+                            </label>
+                        </div>
+                        <div id="question-14" class="mb-4 mcq-question-block question-focus-target" tabindex="-1">
+                            <p class="mcq-question-title"><span class="mcq-question-number">14</span><span class="mcq-question-text">The supervisor says it is essential to stay calm when a customer</span></p>
+                            <label class="mcq-option-row flex items-center cursor-pointer w-3/4 rounded-md px-3 py-2">
+                                <input class="mcq-option-input mr-2" type="radio" value="A" name="part1_q14"> reports an employee to the manager.
+                            </label>
+                            <label class="mcq-option-row flex items-center cursor-pointer w-3/4 rounded-md px-3 py-2">
+                                <input class="mcq-option-input mr-2" type="radio" value="B" name="part1_q14"> delays other shoppers.
+                            </label>
+                            <label class="mcq-option-row flex items-center cursor-pointer w-3/4 rounded-md px-3 py-2">
+                                <input class="mcq-option-input mr-2" type="radio" value="C" name="part1_q14"> refuses to wait their turn.
+                            </label>
+                        </div>
+                        <p><em>Questions 15-20</em></p>
+                        <p>Label the plan below.</p>
+                        <p>Choose the correct letter, <strong>A-J</strong>, next to questions 15-20.</p>
+                        <p><strong>Hollies supermarket</strong></p>
+                        <div class="map-labeling-layout mt-3">
+                            <div class="map-labeling-image-slot" data-map-image-slot="15">
+                                <div data-question-image="true" class="map-question-image">
+                                    <img src="https://pub-65eb13058fe649898da7c805dc4e39d9.r2.dev/uploads/images/69bfe22a3c918370e899a011-1776004773649-eavyfm.jpeg" alt="Question 15 image" class="max-w-full rounded border">
+                                </div>
+                            </div>
+                            <div class="map-labeling-table-wrap">
+                                <table class="min-w-full border border-gray-300 text-sm">
+                                    <thead>
+                                        <tr class="bg-gray-50">
+                                            <th class="border border-gray-300 px-3 py-2 text-left">#</th>
+                                            <th class="border border-gray-300 px-3 py-2 text-left">Label</th>
+                                            <th class="border border-gray-300 px-2 py-2 text-center w-12">A</th>
+                                            <th class="border border-gray-300 px-2 py-2 text-center w-12">B</th>
+                                            <th class="border border-gray-300 px-2 py-2 text-center w-12">C</th>
+                                            <th class="border border-gray-300 px-2 py-2 text-center w-12">D</th>
+                                            <th class="border border-gray-300 px-2 py-2 text-center w-12">E</th>
+                                            <th class="border border-gray-300 px-2 py-2 text-center w-12">F</th>
+                                            <th class="border border-gray-300 px-2 py-2 text-center w-12">G</th>
+                                            <th class="border border-gray-300 px-2 py-2 text-center w-12">H</th>
+                                            <th class="border border-gray-300 px-2 py-2 text-center w-12">I</th>
+                                            <th class="border border-gray-300 px-2 py-2 text-center w-12">J</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr id="question-15">
+                                            <td class="border border-gray-300 px-3 py-2 font-medium">15</td>
+                                            <td class="border border-gray-300 px-3 py-2">Staff entrance</td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="A" name="part1_q15"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="B" name="part1_q15"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="C" name="part1_q15"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="D" name="part1_q15"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="E" name="part1_q15"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="F" name="part1_q15"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="G" name="part1_q15"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="H" name="part1_q15"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="I" name="part1_q15"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="J" name="part1_q15"><span class="map-radio-dot"></span></label></td>
+                                        </tr>
+                                        <tr id="question-16">
+                                            <td class="border border-gray-300 px-3 py-2 font-medium">16</td>
+                                            <td class="border border-gray-300 px-3 py-2">Manager's office</td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="A" name="part1_q16"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="B" name="part1_q16"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="C" name="part1_q16"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="D" name="part1_q16"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="E" name="part1_q16"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="F" name="part1_q16"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="G" name="part1_q16"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="H" name="part1_q16"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="I" name="part1_q16"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="J" name="part1_q16"><span class="map-radio-dot"></span></label></td>
+                                        </tr>
+                                        <tr id="question-17">
+                                            <td class="border border-gray-300 px-3 py-2 font-medium">17</td>
+                                            <td class="border border-gray-300 px-3 py-2">Storage and unpacking</td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="A" name="part1_q17"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="B" name="part1_q17"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="C" name="part1_q17"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="D" name="part1_q17"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="E" name="part1_q17"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="F" name="part1_q17"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="G" name="part1_q17"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="H" name="part1_q17"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="I" name="part1_q17"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="J" name="part1_q17"><span class="map-radio-dot"></span></label></td>
+                                        </tr>
+                                        <tr id="question-18">
+                                            <td class="border border-gray-300 px-3 py-2 font-medium">18</td>
+                                            <td class="border border-gray-300 px-3 py-2">Kitchen</td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="A" name="part1_q18"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="B" name="part1_q18"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="C" name="part1_q18"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="D" name="part1_q18"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="E" name="part1_q18"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="F" name="part1_q18"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="G" name="part1_q18"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="H" name="part1_q18"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="I" name="part1_q18"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="J" name="part1_q18"><span class="map-radio-dot"></span></label></td>
+                                        </tr>
+                                        <tr id="question-19">
+                                            <td class="border border-gray-300 px-3 py-2 font-medium">19</td>
+                                            <td class="border border-gray-300 px-3 py-2">Cleaning equipment</td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="A" name="part1_q19"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="B" name="part1_q19"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="C" name="part1_q19"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="D" name="part1_q19"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="E" name="part1_q19"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="F" name="part1_q19"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="G" name="part1_q19"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="H" name="part1_q19"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="I" name="part1_q19"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="J" name="part1_q19"><span class="map-radio-dot"></span></label></td>
+                                        </tr>
+                                        <tr id="question-20">
+                                            <td class="border border-gray-300 px-3 py-2 font-medium">20</td>
+                                            <td class="border border-gray-300 px-3 py-2">Staff relaxation area</td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="A" name="part1_q20"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="B" name="part1_q20"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="C" name="part1_q20"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="D" name="part1_q20"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="E" name="part1_q20"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="F" name="part1_q20"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="G" name="part1_q20"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="H" name="part1_q20"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="I" name="part1_q20"><span class="map-radio-dot"></span></label></td>
+                                            <td class="map-radio-td border border-gray-300 text-center"><label class="map-radio-cell"><input class="map-radio-native" type="radio" value="J" name="part1_q20"><span class="map-radio-dot"></span></label></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PART 3 -->
+                <div class="hidden" id="panelWrap2">
+                    <div id="«r2»" class="relative read-markdown-content">
+                        <p><em>Questions 21-26</em></p>
+                        <p>What is the student's opinion on each of the following Environment Science modules?</p>
+                        <p>Choose <strong>SIX</strong> answers from the box and write the correct letter, <strong>A-H</strong>, next to questions 21-26.</p>
+                        <div class="flex gap-24 mt-4">
+                            <div>
+                                <h3 class="text-center">Environment Science modules</h3>
+                                <div class="mt-2">
+                                    <div class="flex items-center gap-6 mb-4">
+                                        <div>Statistics for environmental research</div>
+                                        <span class="inline-flex items-center"><input id="question-21" placeholder="21" data-pool="part2_matching_21" readonly class="drop-input border border-dashed rounded w-72 text-center placeholder:font-bold placeholder:text-black" value="" name="part2_q21" data-selected-value=""></span>
+                                    </div>
+                                    <div class="flex items-center gap-6 mb-4">
+                                        <div>Sewage and drainage systems</div>
+                                        <span class="inline-flex items-center"><input id="question-22" placeholder="22" data-pool="part2_matching_21" readonly class="drop-input border border-dashed rounded w-72 text-center placeholder:font-bold placeholder:text-black" value="" name="part2_q22" data-selected-value=""></span>
+                                    </div>
+                                    <div class="flex items-center gap-6 mb-4">
+                                        <div>Agriculture and food security</div>
+                                        <span class="inline-flex items-center"><input id="question-23" placeholder="23" data-pool="part2_matching_21" readonly class="drop-input border border-dashed rounded w-72 text-center placeholder:font-bold placeholder:text-black" value="" name="part2_q23" data-selected-value=""></span>
+                                    </div>
+                                    <div class="flex items-center gap-6 mb-4">
+                                        <div>Sustainable energy</div>
+                                        <span class="inline-flex items-center"><input id="question-24" placeholder="24" data-pool="part2_matching_21" readonly class="drop-input border border-dashed rounded w-72 text-center placeholder:font-bold placeholder:text-black" value="" name="part2_q24" data-selected-value=""></span>
+                                    </div>
+                                    <div class="flex items-center gap-6 mb-4">
+                                        <div>Government policy</div>
+                                        <span class="inline-flex items-center"><input id="question-25" placeholder="25" data-pool="part2_matching_21" readonly class="drop-input border border-dashed rounded w-72 text-center placeholder:font-bold placeholder:text-black" value="" name="part2_q25" data-selected-value=""></span>
+                                    </div>
+                                    <div class="flex items-center gap-6 mb-4">
+                                        <div>Water management</div>
+                                        <span class="inline-flex items-center"><input id="question-26" placeholder="26" data-pool="part2_matching_21" readonly class="drop-input border border-dashed rounded w-72 text-center placeholder:font-bold placeholder:text-black" value="" name="part2_q26" data-selected-value=""></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-center font-bold">Opinions</h3>
+                                <div class="mt-2 space-y-2" id="dragPool">
+                                    <div class="drag-item border p-1 px-2 rounded bg-white cursor-move flex gap-3 border-[#d1d5db]" draggable="true" data-value="A" data-answer="was surprisingly interesting" data-pool="part2_matching_21" data-letter="A" data-text="was surprisingly interesting">was surprisingly interesting</div>
+                                    <div class="drag-item border p-1 px-2 rounded bg-white cursor-move flex gap-3 border-[#d1d5db]" draggable="true" data-value="B" data-answer="covered too many topics" data-pool="part2_matching_21" data-letter="B" data-text="covered too many topics">covered too many topics</div>
+                                    <div class="drag-item border p-1 px-2 rounded bg-white cursor-move flex gap-3 border-[#d1d5db]" draggable="true" data-value="C" data-answer="included out-of-date materials" data-pool="part2_matching_21" data-letter="C" data-text="included out-of-date materials">included out-of-date materials</div>
+                                    <div class="drag-item border p-1 px-2 rounded bg-white cursor-move flex gap-3 border-[#d1d5db]" draggable="true" data-value="D" data-answer="involved practical applications" data-pool="part2_matching_21" data-letter="D" data-text="involved practical applications">involved practical applications</div>
+                                    <div class="drag-item border p-1 px-2 rounded bg-white cursor-move flex gap-3 border-[#d1d5db]" draggable="true" data-value="E" data-answer="supplied useful technical information" data-pool="part2_matching_21" data-letter="E" data-text="supplied useful technical information">supplied useful technical information</div>
+                                    <div class="drag-item border p-1 px-2 rounded bg-white cursor-move flex gap-3 border-[#d1d5db]" draggable="true" data-value="F" data-answer="was too basic to be useful" data-pool="part2_matching_21" data-letter="F" data-text="was too basic to be useful">was too basic to be useful</div>
+                                    <div class="drag-item border p-1 px-2 rounded bg-white cursor-move flex gap-3 border-[#d1d5db]" draggable="true" data-value="G" data-answer="provided unnecessary detail" data-pool="part2_matching_21" data-letter="G" data-text="provided unnecessary detail">provided unnecessary detail</div>
+                                    <div class="drag-item border p-1 px-2 rounded bg-white cursor-move flex gap-3 border-[#d1d5db]" draggable="true" data-value="H" data-answer="seemed too limited" data-pool="part2_matching_21" data-letter="H" data-text="seemed too limited">seemed too limited</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="question-27" class="mb-5 mcma-question-block">
+                            <p><em>Questions 27-28</em></p>
+                            <p>Choose <strong>TWO</strong> letters, <strong>A-E</strong>.</p>
+                            <p class="mcma-question-title"><span class="mcma-question-number">27-28</span><span class="mcma-question-text">Which TWO aspects of the course organization did both Jamie and Martha like?</span></p>
+                            <div class="mcma-option flex items-center gap-2 my-3">
+                                <input id="part2_q27_A" data-max-selections="2" class="mcma-option-input mr-1" type="checkbox" value="A" name="part2_q27">
+                                <label for="part2_q27_A" class="mcma-option-label cursor-pointer checkbox-label">the amount of reading</label>
+                            </div>
+                            <div class="mcma-option flex items-center gap-2 my-3">
+                                <input id="part2_q27_B" data-max-selections="2" class="mcma-option-input mr-1" type="checkbox" value="B" name="part2_q27">
+                                <label for="part2_q27_B" class="mcma-option-label cursor-pointer checkbox-label">the flexibility in the length of the course</label>
+                            </div>
+                            <div class="mcma-option flex items-center gap-2 my-3">
+                                <input id="part2_q27_C" data-max-selections="2" class="mcma-option-input mr-1" type="checkbox" value="C" name="part2_q27">
+                                <label for="part2_q27_C" class="mcma-option-label cursor-pointer checkbox-label">the convenience of choosing when to take modules</label>
+                            </div>
+                            <div class="mcma-option flex items-center gap-2 my-3">
+                                <input id="part2_q27_D" data-max-selections="2" class="mcma-option-input mr-1" type="checkbox" value="D" name="part2_q27">
+                                <label for="part2_q27_D" class="mcma-option-label cursor-pointer checkbox-label">the range of different modules offered</label>
+                            </div>
+                            <div class="mcma-option flex items-center gap-2 my-3">
+                                <input id="part2_q27_E" data-max-selections="2" class="mcma-option-input mr-1" type="checkbox" value="E" name="part2_q27">
+                                <label for="part2_q27_E" class="mcma-option-label cursor-pointer checkbox-label">the relevance of the module content</label>
+                            </div>
+                        </div>
+                        <div id="question-29" class="mb-5 mcma-question-block">
+                            <p><em>Questions 29-30</em></p>
+                            <p>Choose <strong>TWO</strong> letters, <strong>A-E</strong>.</p>
+                            <p class="mcma-question-title"><span class="mcma-question-number">29-30</span><span class="mcma-question-text">Which TWO suggestions for written assignment do Jamie and Martha agree to recommend to Dr Brown?</span></p>
+                            <div class="mcma-option flex items-center gap-2 my-3">
+                                <input id="part2_q29_A" data-max-selections="2" class="mcma-option-input mr-1" type="checkbox" value="A" name="part2_q29">
+                                <label for="part2_q29_A" class="mcma-option-label cursor-pointer checkbox-label">The time for choosing a topic should be changed.</label>
+                            </div>
+                            <div class="mcma-option flex items-center gap-2 my-3">
+                                <input id="part2_q29_B" data-max-selections="2" class="mcma-option-input mr-1" type="checkbox" value="B" name="part2_q29">
+                                <label for="part2_q29_B" class="mcma-option-label cursor-pointer checkbox-label">The permitted word limit should be increased.</label>
+                            </div>
+                            <div class="mcma-option flex items-center gap-2 my-3">
+                                <input id="part2_q29_C" data-max-selections="2" class="mcma-option-input mr-1" type="checkbox" value="C" name="part2_q29">
+                                <label for="part2_q29_C" class="mcma-option-label cursor-pointer checkbox-label">Discussions with fellow students should be arranged.</label>
+                            </div>
+                            <div class="mcma-option flex items-center gap-2 my-3">
+                                <input id="part2_q29_D" data-max-selections="2" class="mcma-option-input mr-1" type="checkbox" value="D" name="part2_q29">
+                                <label for="part2_q29_D" class="mcma-option-label cursor-pointer checkbox-label">Face-to-face feedback sessions with the tutor should be scheduled.</label>
+                            </div>
+                            <div class="mcma-option flex items-center gap-2 my-3">
+                                <input id="part2_q29_E" data-max-selections="2" class="mcma-option-input mr-1" type="checkbox" value="E" name="part2_q29">
+                                <label for="part2_q29_E" class="mcma-option-label cursor-pointer checkbox-label">Tutors should give more help in topic selection.</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PART 4 -->
+                <div class="hidden" id="panelWrap3">
+                    <div id="«r3»" class="relative read-markdown-content">
+                        <p><em>Questions 31-40</em></p>
+                        <p>Complete the notes below.</p>
+                        <p>Write <strong>ONE WORD ONLY</strong> for each answer.</p>
+                        <br>
+                        <h3>The Music of Salvatore Sciarrino</h3>
+                        <br>
+                        <p><strong>Biographical details</strong></p>
+                        <p>• He was born in Palermo in 1947</p>
+                        <p>• He moved to Rome in 1969 and took a course in electronic music, which influenced his style as a composer.</p>
+                        <br>
+                        <p><strong>Work</strong></p>
+                        <p>• In the 1970s he composed a lot of music and taught until 1982.</p>
+                        <p>• As well as music, he has written many <span class="inline-flex items-center"><input id="question-31" placeholder="31" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part3_q31"></span></p>
+                        <p>• He has won many awards – including one in 2011 for <span class="inline-flex items-center"><input id="question-32" placeholder="32" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part3_q32"></span> in music.</p>
+                        <br>
+                        <p><strong>Musical characteristics</strong></p>
+                        <p>• Surprisingly, his music often features <span class="inline-flex items-center"><input id="question-33" placeholder="33" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part3_q33"></span> and very soft sounds.</p>
+                        <p>• His music uses unusual instrument techniques, e.g. violins often produce sounds which resemble those found in <span class="inline-flex items-center"><input id="question-34" placeholder="34" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part3_q34"></span></p>
+                        <p>• He is seen as a <span class="inline-flex items-center"><input id="question-35" placeholder="35" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part3_q35"></span> of music.</p>
+                        <p>• Sciarrino compares his music to a distant <span class="inline-flex items-center"><input id="question-36" placeholder="36" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part3_q36"></span></p>
+                        <br>
+                        <p><strong>Concert piece</strong></p>
+                        <p>• for piano, chorus and orchestra</p>
+                        <p>• finished in 1979 and written in memory of a <span class="inline-flex items-center"><input id="question-37" placeholder="37" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part3_q37"></span></p>
+                        <p>• very difficult to play</p>
+                        <p>• starts with a noise that sounds like <span class="inline-flex items-center"><input id="question-38" placeholder="38" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part3_q38"></span>, produced by two people moving large pieces of <span class="inline-flex items-center"><input id="question-39" placeholder="39" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part3_q39"></span></p>
+                        <p>• although the music is unusual, it has a traditional <span class="inline-flex items-center"><input id="question-40" placeholder="40" class="border rounded w-32 text-center placeholder:font-bold" type="text" value="" name="part3_q40"></span></p>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+            <!-- bottom nav -->
+            <div class="border-t flex-shrink-0 relative bg-white text-black border-gray-200 text-[16px]">
+                <div class="flex border-t bg-white text-black border-gray-300" id="bottomNav">
+                    <button class="flex items-center justify-center flex-1 cursor-pointer relative hover:bg-[rgba(0,0,0,0.05)] partNavBtn" data-part="0">
+                        <div class="absolute rounded-full -top-1 px-1 left-0 right-0 h-[3px] transition-all bg-blue-300"></div>
+                        <div class="flex items-center gap-1 justify-center"><b class="w-12 text-xs sm:text-sm lg:text-base relative text-black">Part 1</b></div>
+                        <div class="flex gap-1 overflow-x-auto max-w-full px-1 py-3" id="navDots0"></div>
+                    </button>
+                    <button class="flex items-center justify-center flex-1 cursor-pointer relative hover:bg-[rgba(0,0,0,0.05)] partNavBtn" data-part="1">
+                        <div class="absolute rounded-full -top-1 px-1 left-0 right-0 h-[3px] transition-all bg-gray-300"></div>
+                        <div class="flex items-center gap-1 justify-center"><b class="w-12 text-xs sm:text-sm lg:text-base relative text-gray-500">Part 2</b><span class="text-gray-400 text-xs" id="partCount1">0 of 10</span></div>
+                    </button>
+                    <button class="flex items-center justify-center flex-1 cursor-pointer relative hover:bg-[rgba(0,0,0,0.05)] partNavBtn" data-part="2">
+                        <div class="absolute rounded-full -top-1 px-1 left-0 right-0 h-[3px] transition-all bg-gray-300"></div>
+                        <div class="flex items-center gap-1 justify-center"><b class="w-12 text-xs sm:text-sm lg:text-base relative text-gray-500">Part 3</b><span class="text-gray-400 text-xs" id="partCount2">0 of 10</span></div>
+                    </button>
+                    <button class="flex items-center justify-center flex-1 cursor-pointer relative hover:bg-[rgba(0,0,0,0.05)] partNavBtn" data-part="3">
+                        <div class="absolute rounded-full -top-1 px-1 left-0 right-0 h-[3px] transition-all bg-gray-300"></div>
+                        <div class="flex items-center gap-1 justify-center"><b class="w-12 text-xs sm:text-sm lg:text-base relative text-gray-500">Part 4</b><span class="text-gray-400 text-xs" id="partCount3">0 of 10</span></div>
+                    </button>
+                    <button class="w-10 sm:w-14 lg:w-20 flex items-center justify-center bg-gray-100 hover:bg-gray-200" id="submitBtn" title="Submit test">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check w-4 h-4 sm:w-5 sm:h-5 text-black" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
+                    </button>
+                </div>
+                <div class="absolute right-8 -top-10 -translate-y-1/2 flex gap-1">
+                    <button class="rounded size-10 flex items-center justify-center bg-black text-white hover:bg-black/70" id="navPrev">&lt;</button>
+                    <button class="rounded size-10 flex items-center justify-center bg-black text-white hover:bg-black/70" id="navNext">&gt;</button>
+                </div>
+            </div>
+
+            <!-- overlay -->
+            <div class="fixed inset-0 z-[70] flex items-center justify-center bg-black/60 p-4" id="startOverlay">
+                <div class="w-full rounded-2xl px-6 py-7 text-center text-white">
+                    <div class="mx-auto mb-4 inline-flex h-20 items-center justify-center rounded-full">
+                        <svg width="100" height="104" viewBox="0 0 100 104" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M94.5637 91.9597C91.63 96.0348 87.4704 99.163 82.6175 100.82C82.3977 100.922 82.1525 100.972 81.9073 100.972C81.6706 100.972 81.4339 100.922 81.2141 100.829V100.879C81.2141 102.536 79.8613 103.889 78.1958 103.889H71.7027C70.0457 103.889 68.6845 102.528 68.6845 100.879V54.2695C68.6845 52.6124 70.0372 51.2513 71.7027 51.2513H78.1958C79.8529 51.2513 81.2141 52.604 81.2141 54.2695V54.557C81.4339 54.4555 81.6706 54.4048 81.9073 54.4048C82.0933 54.4048 82.2793 54.4386 82.4484 54.4893V54.4978C86.1346 55.7237 89.4319 57.812 92.1035 60.509V50.0085C92.1035 37.4197 87.8847 26.6486 80.4278 19.0649L77.1221 23.9939C70.4007 16.5962 60.7203 11.9293 50 11.9293C39.212 11.9293 29.464 16.6554 22.7426 24.1461L18.7437 19.2594C11.3882 26.7585 7.22016 37.3774 7.22016 50.0085V62.0561C10.0947 58.6067 13.9161 55.952 18.2702 54.5063V54.4978C18.4478 54.4386 18.6338 54.4048 18.8113 54.4048C19.048 54.4048 19.2932 54.4555 19.5046 54.5485V54.2611C19.5046 52.604 20.8657 51.2428 22.5228 51.2428H29.0159C30.673 51.2428 32.0342 52.5955 32.0342 54.2611V100.871C32.0342 102.528 30.673 103.881 29.0159 103.881H22.5228C20.8657 103.881 19.5046 102.528 19.5046 100.871V100.82C19.2932 100.913 19.0565 100.964 18.8113 100.964C18.5577 100.964 18.3209 100.905 18.1096 100.812C13.2567 99.1545 9.09706 96.0264 6.16334 91.9513C4.62462 89.8208 3.42408 87.4366 2.63781 84.8749H0V50.0085C0 36.253 5.62225 23.7572 14.6855 14.6939C23.7487 5.63071 36.253 0 50 0C63.7555 0 76.2597 5.63071 85.3145 14.6855C94.3778 23.7487 100 36.2445 100 50V84.8749H98.0808C97.3115 87.4112 96.1109 89.8123 94.5637 91.9597Z" fill="white"></path>
+                        </svg>
+                    </div>
+                    <p class="mt-6">You will be listening to an audio clip during this test. You will not be permitted to pause or rewind the audio while answering the questions.</p>
+                    <p class="mt-2 text-white">To continue, click Play.</p>
+                    <button type="button" class="mx-auto mt-6 inline-flex items-center gap-2 rounded-sm bg-black px-5 py-3 text-white hover:bg-gray-500" id="playBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 0C5.37285 0 0 5.37285 0 12C0 18.6273 5.37285 24 12 24C18.6275 24 23.9999 18.6273 23.9999 12C24 5.37285 18.6275 0 12 0ZM16.8466 13.5204L9.41719 17.7811C8.41756 18.3543 7.60753 17.8847 7.60753 16.7326V8.23154C7.60753 7.07911 8.4175 6.61036 9.41719 7.18346L16.8466 11.4439C17.8463 12.0172 17.8463 12.9469 16.8466 13.5204Z" fill="white" stroke="white" stroke-width="0.156778"></path>
+                        </svg>
+                        Play
+                    </button>
+                </div>
+            </div>
+        </div>
+        <section class="Toastify" aria-live="polite" aria-atomic="false" aria-relevant="additions text" aria-label="Notifications Alt+T"></section>
+    </div>
+
+   
+</body>
+</html>
