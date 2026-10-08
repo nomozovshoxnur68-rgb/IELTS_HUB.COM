@@ -1,0 +1,20 @@
+{
+  "rewrites": [
+    {
+      "source": "/reading",
+      "destination": "/reading.html"
+    },
+    {
+      "source": "/listening",
+      "destination": "/listening.html"
+    },
+    {
+      "source": "/speaking",
+      "destination": "/speaking.html"
+    },
+    {
+      "source": "/performance",
+      "destination": "/index.html"
+    }
+  ]
+}
