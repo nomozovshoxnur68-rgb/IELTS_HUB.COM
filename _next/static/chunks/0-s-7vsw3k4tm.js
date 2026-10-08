@@ -2192,8 +2192,8 @@ Read more: https://nextjs.org/docs/messages/next-image-unconfigured-localpattern
     }, {
         label: "Compete",
         items: [{
-            href: "/leaderboard",
-            label: "Leaderboard",
+            href: "/login",
+            label: "Login",
             icon: g.Trophy
         }, {
             href: "/badges",
