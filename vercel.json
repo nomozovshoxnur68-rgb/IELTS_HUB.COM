@@ -15,9 +15,6 @@
     {
       "source": "/performance",
       "destination": "/index.html"
-   {
-      "source": "/speaking",
-      "destination": "/Speaking/questions.html"
     }
   ]
 }
