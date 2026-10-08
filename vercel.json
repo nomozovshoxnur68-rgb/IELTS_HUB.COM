@@ -10,11 +10,14 @@
     },
     {
       "source": "/speaking",
-      "destination": "/speaking/quations.html"
+      "destination": "/Speaking/questions.html"
     },
     {
       "source": "/performance",
       "destination": "/index.html"
+   {
+      "source": "/speaking",
+      "destination": "/Speaking/questions.html"
     }
   ]
 }
