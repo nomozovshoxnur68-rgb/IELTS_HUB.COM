@@ -2177,7 +2177,7 @@ Read more: https://nextjs.org/docs/messages/next-image-unconfigured-localpattern
             label: "pessages",
             icon: s.BookOpen
         }, {
-            href: "/listening",
+            href: "/listening.html",
             label: "Listening",
             icon: o.Headphones
         }, {
